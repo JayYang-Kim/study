@@ -2,16 +2,20 @@
 <%@page import="java.io.InputStream"%>
 <%@page import="javax.print.DocFlavor.STRING"%>
 <%@page import="java.util.Enumeration"%>
+<!-- 클라이언트가 요청했을때 보여주는 문서 type을 설정 (없으면 안됨) -->
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page trimDirectiveWhitespaces="true" %>
 
 <%
+	/* POST로 보냈고 getParameter로 받을 경우 꼭 필요 (이 과정을 하지 않으면 ISO-8859-1 형식으로 디코딩을 하기 때문에 한글이 깨짐) */
+	/* getParameter로 받지 않은 경우, 생략 가능 */
 	request.setCharacterEncoding("UTF-8");
 %>
 
 <!DOCTYPE html>
 <html>
 	<head>
+		<!-- jsp 파일에서는 없어도됨 -->
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
 		<style>
@@ -29,6 +33,7 @@
 			out.print("<hr/>");
 			out.print("request로 요청받은 header 영역...<br/>");
 			
+			/* getHeaderNames : return값 Enumeration */
 			Enumeration<String> e = request.getHeaderNames();
 			
 			while(e.hasMoreElements()) {
