@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+*{
+	margin: 0px; padding: 0px;
+}
+body {
+    font-size: 14px;
+	font-family: "맑은 고딕", 나눔고딕, 돋움, sans-serif;
+    box-sizing: border-box;  /* padding과 border는 크기에 포함되지 않음 */	
+}
+a{
+	color: #000000;
+	text-decoration: none;
+	cursor: pointer;
+}
+a:active, a:hover {
+	text-decoration: underline;
+	color: tomato;
+}
+.btn {
+    color:#333333;
+    font-weight:500;
+    border:1px solid #cccccc;
+    background-color:#fff;
+    text-align:center;
+    cursor:cursor;
+    padding:3px 10px 5px;
+    border-radius:4px;
+}
+.btn:active, .btn:focus, .btn:hover {
+	 background-color:#e6e6e6;
+	 border-color: #adadad;
+	 color: #333333;
+}
+.boxTF {
+    border:1px solid #999999;
+    padding:4px 5px 5px;
+    border-radius:4px;
+    background-color:#ffffff;
+}
+.selectField {
+    border:1px solid #999999;
+    padding:2px 5px 6px;
+    border-radius:4px;
+    font-size: 12px;
+}
+.title {
+	width:100%;
+	height:45px;
+	line-height:45px;
+	text-align:left;
+	font-weight: bold;
+	font-size:15px;
+}
+</style>
+
+<script type="text/javascript">
+function check() {
+	var f = document.scoreForm;
+	
+	//alert(f.chkAll.checked); // 선택여부
+	
+	// 존재하지 않으면
+	// if(!f.haks) {} (동일)
+	if(f.haks == undefined) {
+		return;
+	}
+	
+	// 동일한 이름의 객체가 없고 하나만 있는 경우
+	if(f.haks.length == undefined) {
+		if (f.chkAll.checked) {
+			f.haks.checked = true; // checkBox 선택
+		} else {
+			f.haks.checked = false; // checkBox 선택해제
+		}
+	}
+	
+	// 동일한 이름의 객체가 두개 이상이면 배열처리 (같은 name이 두개 이상 있어야 배열로 처리됨)
+	for (var i = 0; i < f.haks.length; i++) {
+		if (f.chkAll.checked) {
+			f.haks[i].checked = true; // checkBox 선택
+		} else {
+			f.haks[i].checked = false; // checkBox 선택해제
+		}
+	}
+	
+	alert("완료");
+}
+
+function deleteList() {
+	var f = document.scoreForm;
+	
+	if(f.haks == undefined) {
+		return;
+	}
+	
+	var cnt = 0;
+	
+	if(f.haks.length == undefined) {
+		if(f.haks.checked) {
+			cnt++;
+		}
+	} else {
+		for(var i = 0; i < f.haks.length; i++) {
+			if(f.haks[i].checked) {
+				cnt++;
+			}
+		}
+	}
+	
+	if(cnt == 0) {
+		alert("삭제할 데이터를 선택해주세요.")
+		return;
+	}
+	
+	alert("삭제되었습니다.")
+}
+
+function updateScore(hak) {
+	
+}
+
+function deleteScore(hak) {
+	
+}
+</script>
+
+</head>
+<body>
+
+<div style="width: 700px; margin: 30px auto 0px;">
+	<div style="title">
+	   <h3><span>|</span> 성적 처리</h3>
+	</div>
+
+	<table style="width:100%; margin: 15px auto 0px;">
+		<tr height="35">
+		    <td align="left" width="50">
+		       <button type="button" class="btn" onclick="deleteList();">	삭제 </button>
+		    </td>
+			<td align="right">
+		       <button type="button" class="btn">	등록하기 </button>
+			</td>
+		<tr>
+	</table>
+
+	<form name="scoreForm" method="post">
+	<table style="width: 100%; margin: 0px auto 0px; border-spacing: 1px; background: #cccccc;">
+	<tr height="30"  bgcolor="#E4E6E4">
+		<td width="50" align="center">
+		   <input type="checkbox" name="chkAll" id="chkAll" style="margin-top: 3px;" onclick="check();">
+		</td>
+		<td width="60" align="center">학번</td>
+		<td width="100" align="center">이름</td>
+		<td width="80" align="center">생년월일</td>
+		<td width="50" align="center">국어</td>
+		<td width="50" align="center">영어</td>
+		<td width="50" align="center">수학</td>
+		<td width="50" align="center">총점</td>
+		<td width="50" align="center">평균</td>
+		<td width="50" align="center">석차</td>
+		<td width="110" align="center">변경</td>
+	</tr>   
+   
+	<tr height="30" bgcolor="#FFFFFF">
+		<td align="center">
+			<input type="checkbox" name="haks" value="1" style="margin-top: 3px;">
+		</td>
+		<td align="center">1</td>
+		<td align="center">홍길동</td>
+		<td align="center">2000-01-01</td>
+		<td align="center">60</td>
+		<td align="center">60</td>
+		<td align="center">60</td>
+		<td align="center">180</td>
+		<td align="center">60</td>
+		<td align="center">5</td>
+		<td align="center">
+		    <a href="javascript:updateScore('1');">수정</a> 
+		    | <a href="javascript:deleteScore('1');">삭제</a>
+		</td>
+	</tr> 
+	
+	<tr height="30" bgcolor="#FFFFFF">
+		<td align="center">
+			<input type="checkbox" name="haks" value="2" style="margin-top: 3px;">
+		</td>
+		<td align="center">2</td>
+		<td align="center">김자바</td>
+		<td align="center">2000-01-01</td>
+		<td align="center">80</td>
+		<td align="center">80</td>
+		<td align="center">80</td>
+		<td align="center">240</td>
+		<td align="center">80</td>
+		<td align="center">3</td>
+		<td align="center">
+		    <a href="javascript:updateScore('2');">수정</a> 
+		    | <a href="javascript:deleteScore('2');">삭제</a>
+		</td>
+	</tr>
+	
+	</table>
+	</form> 
+
+</div>
+
+</body>
+</html>
