@@ -5,12 +5,12 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
+		<script src="/study/resource/lib/jquery-3.3.1.min.js"></script>
 		<script type="text/javascript">
 			// undefined = 밑에있는 html을 읽기전에 먼저 스크립트가 실행되서 undefined가 발생
 			// 방법1. window.onload(전체 데이터 읽은 후)을 사용하여 확인 가능
 			// 방법2. script영역을 body영역 밑으로 뺀다.
 			//alert(document.myForm); 
-			
 			window.onload = function() {
 				var f = document.myForm;
 				// select 선택

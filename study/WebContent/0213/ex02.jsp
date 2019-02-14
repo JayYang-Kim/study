@@ -10,15 +10,16 @@
 			function User(name, age) {
 				this.name = name; // 파라미터와 같은 이름의 프로퍼티를 만들고 싶을땐 this 사용
 				this.age = age;
-				this result = function() {
+				this.result = function() {
 					return this.age >= 19 ? "성인" : "미성년자";
 				}
 			}
 			
-			var u new User("자바", 20);
-			document.write(u.name + "<br/>");
-			document.write(u.result() + "<br/>");
+			var u = new User("자바", 20);
+			//document.write(u.name + "<br/>");
+			//document.write(u.result() + "<br/>");
 			
+			// 어떤 생성자 객체를 통해 생겨나 인스턴스인지를 알려주는 속성
 			console.log(u.constructor == User);
 			console.log(u instanceof User);
 			console.log(u instanceof Object); // 스크립트의 모든 객체는 Object 객체이기도 한다.

@@ -9,8 +9,8 @@
 			var a; // 변수선언 (전역변수)
 			
 			// 자바스크립트 자료형 검사 (typeof : 자료형을 확인 할 때 주로 사용)
-			a = typeof('자바'); // [결과] String	
-			document.write(a + "<br/>");
+			a = typeof('자바'); 	
+			document.write(a + "<br/>"); // [결과] String
 			
 			a = typeof(10); 	
 			document.write(a + "<br/>"); // [결과] number

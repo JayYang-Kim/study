@@ -17,7 +17,7 @@
 				return this.age >= 19 ? "성인" : "미성년자";
 			}
 			
-			var u = new User("자바", 20)
+			var u = new User("자바", 20);
 			document.write(u.name + "<br/>");
 			document.write(u.result() + "<br/>");
 		</script>
