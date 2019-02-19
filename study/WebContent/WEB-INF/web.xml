@@ -15,6 +15,16 @@
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
 	
+	<!-- 에러 페이지 설정 -->
+	<!-- <error-page>
+		<error-code>404</error-code>
+		<location>/error/error404.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error/error500.jsp</location>
+	</error-page> -->
+	
 	<!-- 서블릿 클래스와 그 초기화 속성을 정의 -->
 	<servlet>
 		<servlet-name>firstServlet</servlet-name> <!-- 명칭 -->

@@ -24,12 +24,16 @@
 				.replaceAll("\n", "<br/>");	
 	}
 	
-	// 컴퓨터 현재 시간 가져오기
+	// 현재 시간 계산 - 방법1
 	Date now = new Date();
 
 	SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
 	String today = date.format(now);
+	
+	// 현재 시간 계산 - 방법2
+	/* Calendar cal = Calendar.getInstance();
+	String created = String.format("%tF %tT", cal, cal); */
 %>
 <!DOCTYPE html>
 <html>
@@ -88,8 +92,20 @@
 					return;
 				}
 				
-				f.action = "guest.jsp";
+				f.action = "guest.jsp"; // 보내는 주소와 받는 주소가 같은 경우 action 생략 가능
 				f.submit();
+			}
+			
+			function delContent() {
+				var f = document.textForm;
+				var con = confirm("글을 삭제하기겠습니까?");
+				
+				if(con == true) {
+					alert("삭제 되었습니다.");
+					return;
+				} else {
+					alert("취소 되었습니다.");
+				}
 			}
 		</script>
 	</head>
@@ -123,14 +139,14 @@
 				</div>
 			</div>
 			
-			<%
+			<%-- <%
 				if(name != null && msg != null) {
 					out.print("<div style='border-top:1px solid #c4c4c4;border-bottom:1px solid #c4c4c4;clear:both;'>");
 					out.print("<div style='padding:10px;background-color:#eeeeee;'>");
 					out.print("<span style='font-weight:bold;'>" + name + "</span>");
 					out.print("<div style='float:right;'>");
 					out.print("<span>" + today + "</span>");
-					out.print("<span> | 삭제</span>");
+					out.print("<span style='cursor:pointer;' onclick='delContent()'> | 삭제</span>");
 					out.print("</div>");
 					out.print("</div>");
 					out.print("<div style='padding:10px;clear:both;'>");
@@ -138,7 +154,24 @@
 					out.print("</div>");
 					out.print("</div>");
 				}
-			%>
+			%> --%>
+			
+			<%-- if(!contents.equals("")) --%>
+			<%-- if(contents.length() != 0) --%>
+			<% if((name != null) && (msg != null)) { %>
+				<div style="border-top: 1px solid #c4c4c4; border-bottom: 1px solid #c4c4c4; clear: both;">
+					<div style="padding: 10px; background-color: #eeeeee;">
+						<span style="font-weight: bold;"><%= name %></span>
+						<div style="float: right;">
+							<span><%= today %></span>
+							<span style="cursor: pointer;" onclick="delContent()"> | 삭제</span>
+						</div>
+					</div>
+					<div style="padding: 10px; clear: both;">
+						<span><%= msg %></span>
+					</div>
+				</div>
+			<% } %>
 		</div>
 	</body>
 </html>
