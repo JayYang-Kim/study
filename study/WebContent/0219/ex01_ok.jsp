@@ -20,7 +20,7 @@
 		<%
 			while(e.hasMoreElements()) {
 				String name = e.nextElement(); // 파라미터 이름
-				/* 동일한 name이 2개 이상이면 하나만 받는다.  */
+				/* 동일한 name이 2개 이상이면 하나만 받는다. */
 				/* String value = request.getParameter(name);
 				out.print(name + " : " + value + "<br/>"); */
 				

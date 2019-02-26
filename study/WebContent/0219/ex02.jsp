@@ -10,6 +10,7 @@
 			function check() {
 				var f = document.form1;
 				
+				// submit기능이 있는 객체가 submit()을 호출하게 되면 서버에 두 번 전송됨
 				return true;
 			}
 		</script>

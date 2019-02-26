@@ -93,7 +93,8 @@ a:active, a:hover {
 	function itemMove(ob) {
 		var f = document.noteForm;
 		var source, target;
-
+		
+		// target : 위치 / source : 사람 목록
 		if (ob == "left") {
 			target = f.itemLeft;
 			source = f.itemRight;
@@ -106,7 +107,7 @@ a:active, a:hover {
 		var len = source.length;
 
 		for (var i = 0; i < len; i++) {
-			if (source.options[i].selected) {
+			if (source.options[i].selected) { // option중 선택된 값만 체크
 				target[n++] = new Option(source.options[i].text,
 						source.options[i].value);
 				source[i] = null;
@@ -134,7 +135,7 @@ a:active, a:hover {
 		for (var i = 0; i < len; i++) {
 			target[n++] = new Option(source.options[0].text,
 					source.options[0].value);
-			source[0] = null;
+			source[0] = null; // target쪽으로 옮긴 후 맨 위에 있는 값 지우기
 		}
 	}
 

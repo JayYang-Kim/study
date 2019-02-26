@@ -9,7 +9,7 @@
 			function sendOk(operator) {
 				var f = document.forms[0];
 				
-				if(!/^(\d+)$/.test(f.num1.value)) {
+				if(!/^(\d+)$/.test(f.num1.value)) { // 숫자 1개 이상 입력
 					f.num1.focus();
 					return;
 				}

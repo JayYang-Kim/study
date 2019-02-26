@@ -16,6 +16,7 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
+		<h3>에러 발생 시 web.xml에서 캐치</h3>
 		이름 : <%= name %><br/>
 		결과 : <%= s %><br/>
 	</body>

@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page trimDirectiveWhitespaces="true" %>
-<%@ page errorPage="error.jsp" %>
+<%@ page errorPage="error.jsp" %><!-- 실행 도중 에러가 발생할 때 보여줄 페이지를 지정 -->
 <%
 	String name = request.getParameter("name");
 	int age = Integer.parseInt(request.getParameter("age"));
